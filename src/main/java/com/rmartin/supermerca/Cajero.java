@@ -31,15 +31,33 @@ public class Cajero {
         this.t = 0;
         this.ps = new ArrayList<>();
     }
-
+    
+    /**
+     * Elimina un producto del ticket de compra actual.
+     * 
+     * @param p El objeto {@link Producto} que se desea retirar.
+     */
     public void ANADIRPRODUCTO(Producto p) {
         ps.add(p);
     }
-
+    /**
+     * Elimina un producto del ticket de compra actual.
+     * 
+     * @param p El objeto {@link Producto} que se desea retirar.
+     */
     public void eliminarProDUCTO(Producto p) {
         ps.remove(p);
     }
-
+    
+    /**
+     * Procesa el cobro del ticket actual.
+     * 
+     * Calcula el subtotal, el IVA (21%) y el total de la compra. Muestra por 
+     * consola el desglose del ticket, actualiza el histórico diario de la caja 
+     * (incrementa el número de tickets y suma el total facturado) y, finalmente, 
+     * vacía el ticket para el siguiente cliente.
+     * 
+     */
     public void cobrar() {
         double subt = 0;
         for (Producto p : ps) {
@@ -64,7 +82,15 @@ public class Cajero {
         t = t + tot;
         ps.clear();
     }
-
+    
+    /**
+     * Realiza el cierre de caja del día.
+     *
+     * Calcula de forma desglosada el IVA total recaudado a partir del dinero 
+     * acumulado en caja y muestra por consola un resumen con el nombre del cajero, 
+     * el número total de tickets emitidos y la facturación total del día.
+     * 
+     */
     public void cierreCaja() {
         double ivaRec = t - (t / (1 + 0.21));
 
@@ -76,15 +102,31 @@ public class Cajero {
         System.out.println("IVA recaudado:    " + String.format("%.2f", ivaRec) + " EUR");
         System.out.println("==========================");
     }
-
+    
+    /**
+     * Comprueba si el ticket de compra actual está vacío.
+     * 
+     * @return {@code true} si no hay productos en el ticket actual; 
+     *         {@code false} en caso contrario.
+     */
     public boolean ticketVacio() {
         return ps.isEmpty();
     }
-
+    
+    /**
+     * Obtiene la cantidad total de tickets emitidos durante el día.
+     * 
+     * @return El número de tickets cobrados hasta el momento.
+     */
     public int getTicketsEmitidos() {
         return c;
     }
-
+    
+    /**
+     * Obtiene el importe total facturado acumulado en el día.
+     * 
+     * @return El total de dinero recaudado (con IVA incluido).
+     */
     public double getTotalDia() {
         return t;
     }
