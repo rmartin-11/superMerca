@@ -16,7 +16,15 @@ public class Cajero {
     int c;
     double t;
     ArrayList<Producto> ps;
-
+    
+    
+    /**
+     * Constructor de la clase Cajero.
+     * Inicializa un nuevo cajero con un nombre específico, pone a cero el contador 
+     * de caja y el total acumulado, e inicializa la lista de productos vacía.
+     *
+     * @param n El nombre o identificador que se asignará al cajero.
+     */
     public Cajero(String n) {
         this.n = n;
         this.c = 0;
