@@ -19,7 +19,7 @@ public class Cajero {
     
     
     /**
-     * Constructor de la clase Cajero.
+     * Constructor de la clasee Cajero.
      * Inicializa un nuevo cajero con un nombre específico, pone a cero el contador 
      * de caja y el total acumulado, e inicializa la lista de productos vacía.
      *
